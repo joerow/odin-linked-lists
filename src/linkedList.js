@@ -1,6 +1,10 @@
-import Node from "./node";
-
-export default class LinkedList {
+class Node {
+  constructor(value) {
+    this.value = value;
+    this.nextNode = null;
+  }
+}
+class LinkedList {
   constructor() {
     this.head = null;
     this.size = 0;
@@ -46,3 +50,5 @@ export default class LinkedList {
     this.size++;
   }
 }
+
+let myList = new LinkedList();
