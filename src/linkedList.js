@@ -61,6 +61,21 @@ class LinkedList {
   tail() {
     return this.tail;
   }
+
+  at(key) {
+    var current = this.head;
+    if (key > this.size - 1) {
+      console.log("Number entered is larger than list length");
+      return "ERROR";
+    } else if (key == 0) {
+      return current;
+    } else {
+      for (let index = 0; index < key; index++) {
+        current = current.nextNode;
+      }
+      return current;
+    }
+  }
 }
 
 let myList = new LinkedList();
@@ -69,3 +84,4 @@ myList.append(50);
 myList.prepend(10);
 console.log("The current list size is: " + myList.size);
 console.log(myList.tail);
+console.log(myList.at(2));
