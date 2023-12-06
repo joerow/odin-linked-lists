@@ -108,9 +108,6 @@ class LinkedList {
       console.log("list is empty");
     } else {
       current = this.head;
-      if (current.value == key) {
-        return console.log("TRUE");
-      }
       //iterate to the end of the list
       while (current.nextNode) {
         if (current.value == key) {
@@ -120,6 +117,28 @@ class LinkedList {
         }
       }
       return console.log("FALSE");
+    }
+  }
+
+  find(key) {
+    let index = 0;
+    var current;
+
+    //if list is Empty return false
+    if (this.head == null) {
+      console.log("list is empty");
+    } else {
+      current = this.head;
+      //iterate to the end of the list
+      while (current.nextNode) {
+        if (current.value == key) {
+          return console.log(index);
+        } else {
+          current = current.nextNode;
+          index++;
+        }
+      }
+      return console.log("Not in list");
     }
   }
 }
