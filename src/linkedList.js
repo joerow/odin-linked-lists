@@ -99,12 +99,37 @@ class LinkedList {
     this.size--;
     return;
   }
+
+  contains(key) {
+    var current;
+
+    //if list is Empty return false
+    if (this.head == null) {
+      console.log("list is empty");
+    } else {
+      current = this.head;
+      if (current.value == key) {
+        return console.log("TRUE");
+      }
+      //iterate to the end of the list
+      while (current.nextNode) {
+        if (current.value == key) {
+          return console.log("TRUE");
+        } else {
+          current = current.nextNode;
+        }
+      }
+      return console.log("FALSE");
+    }
+  }
 }
 
 let myList = new LinkedList();
 myList.append(20);
 myList.append(50);
 myList.prepend(10);
+myList.prepend(9);
+myList.prepend(8);
 console.log("The current list size is: " + myList.size);
 console.log(myList.tail);
 console.log(myList.at(2));
