@@ -76,6 +76,29 @@ class LinkedList {
       return current;
     }
   }
+
+  pop() {
+    var previous;
+
+    var current;
+    //if list is Empty return
+    if (this.head == null) {
+      return;
+    } else {
+      current = this.head;
+
+      //iterate to the end of the list
+      while (current.nextNode) {
+        previous = current;
+        current = current.nextNode;
+      }
+      //remove link
+      previous.nextNode = null;
+      this.tail = previous;
+    }
+    this.size--;
+    return;
+  }
 }
 
 let myList = new LinkedList();
@@ -85,3 +108,5 @@ myList.prepend(10);
 console.log("The current list size is: " + myList.size);
 console.log(myList.tail);
 console.log(myList.at(2));
+myList.pop();
+console.log("The current list size is: " + myList.size);
