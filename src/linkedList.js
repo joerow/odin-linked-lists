@@ -160,6 +160,36 @@ class LinkedList {
     }
     return console.log(string);
   }
+
+  insertAt(value, index) {
+    //create a new node
+    var node = new Node(value);
+    var previousNode;
+    var current = this.head;
+    var nextNode;
+    let listIndex = 0;
+
+    if (index > this.size) {
+      console.log("Number entered is larger than list length");
+      return "ERROR";
+    }
+    if (this.head == null) {
+      this.head = node;
+    }
+    if (index == this.size) {
+      this.append(value);
+    } else if (index == 0) {
+      this.prepend(value);
+    } else {
+      while (listIndex < index) {
+        current = current.nextNode;
+        listIndex++;
+      }
+      node.nextNode = current.nextNode;
+      current.nextNode = node;
+      this.size++;
+    }
+  }
 }
 
 let myList = new LinkedList();
