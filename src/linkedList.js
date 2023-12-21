@@ -175,8 +175,7 @@ class LinkedList {
     }
     if (this.head == null) {
       this.head = node;
-    }
-    if (index == this.size) {
+    } else if (index == this.size) {
       this.append(value);
     } else if (index == 0) {
       this.prepend(value);
