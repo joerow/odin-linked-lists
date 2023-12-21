@@ -141,6 +141,25 @@ class LinkedList {
       return console.log("Not in list");
     }
   }
+
+  toString() {
+    let string = "";
+    var current;
+
+    //if list is Empty return false
+    if (this.head == null) {
+      console.log("list is empty");
+    } else {
+      current = this.head;
+      //iterate to the end of the list
+      while (current.nextNode) {
+        string += "(" + current.value.toString() + ") -> ";
+        current = current.nextNode;
+      }
+      string += "(" + current.value.toString() + ")";
+    }
+    return console.log(string);
+  }
 }
 
 let myList = new LinkedList();
