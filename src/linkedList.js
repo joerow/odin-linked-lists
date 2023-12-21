@@ -189,6 +189,31 @@ class LinkedList {
       this.size++;
     }
   }
+  removeAt(index) {
+    var previousNode;
+    var current = this.head;
+    var nextNode;
+    let listIndex = 0;
+
+    if (index > this.size) {
+      console.log("Number entered is larger than list length");
+      return "ERROR";
+    }
+    if (index == this.size) {
+      this.pop();
+    } else if (index == 0) {
+      this.head = current.nextNode;
+    } else {
+      while (listIndex < index) {
+        previousNode = current;
+        nextNode = current.nextNode;
+        current = current.nextNode;
+        listIndex++;
+      }
+      previousNode.nextNode = current.nextNode;
+      this.size--;
+    }
+  }
 }
 
 let myList = new LinkedList();
